@@ -1,0 +1,35 @@
+{% extends 'user/layout.html' %}
+{% block content %}
+{% load static %}
+      <div class="table-responsive">
+
+        
+
+                <table class="table ">
+                <tbody>
+                            
+                <div class="row float-left" >
+
+                        {% for row in result %}
+                <div class="col-lg-10 grid-margin stretch-card py-3" style="margin-left: 100px; ">
+
+                <div class="card " >
+                <div class="card-header" style="text-transform: uppercase; background: grey;">
+                        {{row.title}}
+                </div>
+                <div class="card-body">
+                  <!-- <h5 class="card-title">{{row.title}}</h5> -->
+                  <p class="card-text py-3">{{row.description}}</p>
+                  <a href="/media/upload/{{row.pdf}}" class="btn btn-primary">View</a>
+                  <a href="/media/upload/{{row.pdf}}" class="btn btn-primary" download>Download Pdf</a>
+
+                </div>
+                </div>
+                </div>
+                        {% endfor %}
+                      
+                    </div> 
+                    </tbody>
+                    </table>
+                    </div>
+{% endblock %}

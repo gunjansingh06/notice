@@ -1,0 +1,85 @@
+{% extends 'user/layout.html' %}
+{% block content %}
+{% load static %}
+      <div class="table-responsive">
+<style >
+    button {
+            padding: 5px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            width: 100px;
+            height: 35px;
+            margin-top:13px;
+        }
+        button:hover{
+            background-color: #45a049;
+            box-shadow: 1px 1px 1px 1px lightgreen;
+
+        }
+        label{
+            font-weight: 800;
+            font-size: 17px;
+        }
+        .form-group input[type="date"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size:14px;
+
+        }
+        .form-group input[type="date"]:hover{
+            box-shadow: 2px 2px 4px 4px lightblue;
+        }
+</style>
+        <form method="GET"  style="margin-left: 75px;" class="col-sm-12 " action="{% url 'search_view' %}">
+        <div class="form-group float-left col-lg-4">
+            <label for="start_date">From Date:</label>
+            <input type="date" class="form-control" id="start_date" name="start_date">
+        </div>
+        <div class="form-group float-left col-lg-4">
+            <label for="end_date">To Date:</label>
+            <input type="date" class="form-control" id="end_date" name="end_date">
+        </div>
+       <div class="search col-lg-2 float-left" style="margin-top: 20px;"> <button type="submit">Search</button> 
+      </div>
+   
+
+    </form>
+      <div class="float-left  " style=" margin-top: 18px;">
+      <a href="{% url 'generate_pdf' %}?start_date={{ start_date|date:'Y-m-d' }}&end_date={{ end_date|date:'Y-m-d' }}">
+        <button type="submit" class="btn btn-primary">Download Report</button></a>
+</div>
+
+                <table class="table">
+                <tbody>
+                            
+                <div class="row float-left" >
+
+                        {% for row in result %}
+                <div class="col-lg-10 grid-margin stretch-card py-3" style="margin-left: 100px; ">
+
+                <div class="card " >
+                <div class="card-header" style="text-transform: uppercase; background: grey;">
+                        {{row.title}}
+                </div>
+                <div class="card-body">
+                  <!-- <h5 class="card-title">{{row.title}}</h5> -->
+                  <p class="card-text py-3">{{row.description}}</p>
+                  <a href="/media/upload/{{row.pdf}}" class="btn btn-primary">View</a>
+                  <a href="/media/upload/{{row.pdf}}" class="btn btn-primary" download>Download Pdf</a>
+
+                </div>
+                </div>
+                </div>
+                        {% endfor %}
+                      
+                    </div> 
+                    </tbody>
+                    </table>
+                    </div>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>NOTICE</title>
+    <link rel="icon" href="{% static 'user/img/favicon.png' %}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'user/css/bootstrap.min.css' %}">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="{% static 'user/css/animate.css' %}">
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="{% static 'user/css/owl.carousel.min.css' %}">
+    <!-- themify CSS -->
+    <link rel="stylesheet" href="{% static 'user/css/themify-icons.css' %}">
+    <!-- flaticon CSS -->
+    <link rel="stylesheet" href="{% static 'user/css/liner_icon.css' %}">
+    <link rel="stylesheet" href="{% static 'user/css/search.css' %}">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="{% static 'user/css/style.css' %}">
+</head>
+
+<body>
+    <!--::header part start::-->
+     {% include 'user/header.html' %}
+
+    <!-- Header part end-->
+
+     {% block content %}
+        {% endblock %}
+
+     <!-- footer part start-->
+        {% include 'user/footer.html' %}
+
+    <!-- footer part end-->
+    <!-- jquery -->
+    <script src="{% static 'user/js/jquery-1.12.1.min.js' %}"></script>
+    <!-- popper js -->
+    <script src="{% static 'user/js/popper.min.js' %}"></script>
+    <!-- bootstrap js -->
+    <script src="{% static 'user/js/bootstrap.min.js' %}"></script>
+    <!-- custom js -->
+    <script src="{% static 'user/js/custom.js' %}"></script>
+</body>
+
+</html>
